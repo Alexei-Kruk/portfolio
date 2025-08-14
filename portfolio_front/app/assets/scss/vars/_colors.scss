@@ -1,0 +1,43 @@
+:root {
+  --current-background-color: var(--bg-white); // Техническое свойство, просто так не удалять!!!
+  --current-text-color:       var(--text-dark-primary); // Техническое свойство, просто так не удалять!!!
+  --current-accent-color:     var(--accent-primary-hover); // Техническое свойство, просто так не удалять!!!
+
+  --accent-primary-default:   #FFFFFF;
+  --accent-primary-hover:     #2782e4;
+
+  --bg-white:                 #FFFFFF;
+  --bg-light:                 #FAFAFA;
+  --bg-accent:                #2782e4;
+
+  --bg-grey:                  #FCFCFC;
+
+  --bg-dark:                  #04060b;
+
+  --text-light-primary:       #FFFFFF;
+  --text-light-secondary:     #2782e4;
+  --text-gray:                #d1d1d1;
+
+  --text-dark-primary:        #17191d;
+  --text-dark-secondary:      #4A4E57;
+  --text-dark-tertiary:       #999999;
+
+  --border-color:             #FFFFFF;
+  --border-color-hover:       #2782e4;
+
+  --stroke-light:             rgba(139, 140, 142, .2);
+  --stroke-dark:              rgba(27, 47, 63, .1);
+  --stroke-dark-secondary:    rgba(27, 47, 63, .05);
+
+  --system-states-error:      var(--accent-primary-default);
+  --system-states-validation: #FFC225;
+  --system-states-success:    #2AB6A5;
+
+  --disabled-light:           #FFFFFF4D;
+  --disabled-dark:            #0000004D;
+
+  --error-color:              #f8291a;    
+  --success-color:            #0e8a0e;  
+
+  --icon-color:               var(--text-dark-primary);
+}

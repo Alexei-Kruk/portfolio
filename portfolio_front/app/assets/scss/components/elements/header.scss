@@ -1,0 +1,129 @@
+@import "@/assets/scss/_mixins.scss";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  padding: rem(10) rem(60);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @include mediaBigDesktop {
+    padding: big(10) big(60);
+  }
+
+  @include mediaLaptop {
+    padding: rem(10) rem(40);
+  }
+
+  @include mediaTablet {
+    padding: rem(10) rem(30);
+  }
+
+  @include mediaMobile {
+    padding: rem(20) rem(25);
+  }
+
+  &__phone {
+    min-width: fit-content;
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+
+      & .header__phone-number {
+        color: var(--text-light-secondary);
+      }
+    }
+
+    & .icon {
+      margin-right: rem(12);
+
+      width: rem(36);
+      height: auto;
+
+      filter: brightness(0) invert(1);
+
+      @include mediaBigDesktop {
+        margin-right: big(12);
+
+        width: big(36);
+      }
+
+      @include mediaLaptop {
+        margin-right: rem(12);
+
+        width: rem(30);
+      }
+    }
+  }
+
+  &__phone-number {
+    color: var(--text-light-primary);
+    font: var(--font-nav);
+
+    transition: color var(--animation-default);
+  }
+}
+
+// Кнопка бургер
+.burger {
+  z-index: 1001;
+
+  width: rem(36);
+  height: rem(20);
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+
+  @include mediaMobile {
+    display: flex;
+  }
+
+  &__line {
+    width: 100%;
+    height: rem(3);
+
+    background-color: var(--text-light-primary);
+
+    transition: all var(--animation-default);
+  }
+
+  &__line--open:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  &__line--open:nth-child(2) {
+    opacity: 0;
+  }
+
+  &__line--open:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+// Затемнение
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.21);
+}

@@ -1,0 +1,101 @@
+@import "@/assets/scss/_mixins.scss";
+
+:root {
+  --font-primary: "Montserrat", sans-serif;
+
+  --current-font: var(--font-body); // Техническое свойство, просто так не удалять!!!
+
+  --font-body:            300 #{rem(18)} / 1 var(--font-primary);
+  --font-resume:          300 #{rem(16)} / 1 var(--font-primary);
+  --font-footer:          300 #{rem(12)} / 1 var(--font-primary);
+  --font-nav:             300 #{rem(22)} / 1 var(--font-primary);
+  --font-nav-mobile:      300 #{rem(24)} / 1 var(--font-primary);
+
+  --font-hero-title:      400 #{rem(120)} / 1 var(--font-primary);
+  --font-hero-title-bold: 800 #{rem(160)} / 1 var(--font-primary);
+  --font-hero-subtitle:   300 #{rem(38)} / 1 var(--font-primary);
+
+  --font-h1:              700 #{rem(48)} / 1 var(--font-primary);
+  --font-h2:              700 #{rem(28)} / 1 var(--font-primary);
+  --font-h3:              300 #{rem(28)} / 1 var(--font-primary);
+  --font-h4:              700 #{rem(24)} / 1 var(--font-primary);
+
+  --font-btn:             300 #{rem(30)} / 1 var(--font-primary);
+  --font-date:            400 #{rem(12)} / 1 var(--font-primary);
+
+  @include mediaBigDesktop {
+    --font-body:            300 #{big(18)} / 1 var(--font-primary);
+    --font-resume:          300 #{big(16)} / 1 var(--font-primary);
+    --font-footer:          300 #{big(12)} / 1 var(--font-primary);
+    --font-nav:             300 #{big(28)} / 1 var(--font-primary);
+
+    --font-hero-title:      400 #{big(120)} / 1 var(--font-primary);
+    --font-hero-title-bold: 800 #{big(160)} / 1 var(--font-primary);
+    --font-hero-subtitle:   300 #{big(38)} / 1 var(--font-primary);
+
+    --font-h1:              700 #{big(48)} / 1 var(--font-primary);
+    --font-h2:              700 #{big(28)} / 1 var(--font-primary);
+    --font-h3:              300 #{big(28)} / 1 var(--font-primary);
+    --font-h4:              700 #{big(24)} / 1 var(--font-primary);
+
+    --font-btn:             300 #{big(30)} / 1 var(--font-primary);
+    --font-date:            400 #{big(12)} / 1 var(--font-primary);
+  }
+
+  @include mediaLaptop {
+    --font-body:            300 #{rem(18)} / 1 var(--font-primary);
+    --font-resume:          300 #{rem(14)} / 1 var(--font-primary);
+    --font-footer:          300 #{rem(11)} / 1 var(--font-primary);
+    --font-nav:             300 #{rem(20)} / 1 var(--font-primary);
+
+    --font-hero-title:      400 #{rem(105)} / 1 var(--font-primary);
+    --font-hero-title-bold: 800 #{rem(136)} / 1 var(--font-primary);
+    --font-hero-subtitle:   300 #{rem(32)} / 1 var(--font-primary);
+
+    --font-h1:              700 #{rem(36)} / 1 var(--font-primary);
+    --font-h2:              700 #{rem(22)} / 1 var(--font-primary);
+    --font-h3:              300 #{rem(22)} / 1 var(--font-primary);
+    --font-h4:              700 #{rem(18)} / 1 var(--font-primary);
+
+    --font-btn:             300 #{rem(22)} / 1 var(--font-primary);
+    --font-date:            400 #{rem(10)} / 1 var(--font-primary);
+  }
+
+  @include mediaTablet {
+    --font-body:            300 #{rem(16)} / 1 var(--font-primary);
+    --font-resume:          300 #{rem(13)} / 1 var(--font-primary);
+    --font-footer:          300 #{rem(10)} / 1 var(--font-primary);
+    --font-nav:             300 #{rem(24)} / 1 var(--font-primary);
+
+    --font-hero-title:      400 #{rem(90)} / 1 var(--font-primary);
+    --font-hero-title-bold: 800 #{rem(112)} / 1 var(--font-primary);
+    --font-hero-subtitle:   300 #{rem(26)} / 1 var(--font-primary);
+
+    --font-h1:              700 #{rem(28)} / 1 var(--font-primary);
+    --font-h2:              700 #{rem(18)} / 1 var(--font-primary);
+    --font-h3:              300 #{rem(18)} / 1 var(--font-primary);
+    --font-h4:              700 #{rem(14)} / 1 var(--font-primary);
+
+    --font-btn:             300 #{rem(16)} / 1 var(--font-primary);
+    --font-date:            400 #{rem(9)} / 1 var(--font-primary);
+  }
+
+  @include mediaMobile {
+    --font-body:            300 #{rem(14)} / 1 var(--font-primary);
+    --font-resume:          300 #{rem(12)} / 1 var(--font-primary);
+    --font-footer:          300 #{rem(9)} / 1 var(--font-primary);
+    --font-nav:             300 #{rem(20)} / 1 var(--font-primary);
+
+    --font-hero-title:      400 #{rem(75)} / 1 var(--font-primary);
+    --font-hero-title-bold: 800 #{rem(96)} / 1 var(--font-primary);
+    --font-hero-subtitle:   300 #{rem(23)} / 1 var(--font-primary);
+
+    --font-h1:              700 #{rem(20)} / 1 var(--font-primary);
+    --font-h2:              700 #{rem(18)} / 1 var(--font-primary);
+    --font-h3:              300 #{rem(16)} / 1 var(--font-primary);
+    --font-h4:              700 #{rem(14)} / 1 var(--font-primary);
+
+    --font-btn:             300 #{rem(18)} / 1 var(--font-primary);
+    --font-date:            400 #{rem(12)} / 1 var(--font-primary);
+  }
+}

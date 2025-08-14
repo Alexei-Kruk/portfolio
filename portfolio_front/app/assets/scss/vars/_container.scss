@@ -1,0 +1,28 @@
+:root {
+  --content-width: #{rem(1450)};
+  --container-offset: #{rem(20)};
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+  @include mediaBigDesktop {
+     --content-width: #{big(1450)};
+     --container-offset: #{big(20)};
+  }
+
+  @include mediaLaptop {
+    --content-width: #{rem(1200)};
+    --container-offset: #{rem(20)};
+  }
+
+  @include mediaTablet {
+    --content-width: #{rem(880)};
+    --container-offset: #{rem(15)};
+  }
+
+  @include media(850px) {
+    --content-width: #{rem(620)};
+  }
+
+  @include mediaMobile {
+    --container-offset: #{rem(15)};
+  }
+}

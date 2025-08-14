@@ -1,0 +1,14 @@
+:root {
+  --radius-big-elements:    #{rem(50)};
+  --radius-btn:             #{rem(5)};
+  --radius-card:            #{rem(10)};
+  --radius-infinity:        #{rem(1600)};
+
+  @include mediaTablet {
+    --radius-big-elements:    #{rem(30)};
+  }
+
+  @include mediaMobile {
+    --radius-big-elements:    #{rem(15)};
+  }
+}

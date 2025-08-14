@@ -1,0 +1,395 @@
+@import "@/assets/scss/_mixins.scss";
+
+.resume {
+  margin: 0;
+
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-light-primary);
+
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0,0,0,0.8)), url("/images/resume3.jpg") center center/cover no-repeat;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: rem(100);
+
+    @include mediaBigDesktop {
+      gap: big(100);
+    }
+
+    @include mediaLaptop {
+      gap: rem(30);
+    }
+
+    @include mediaTablet {
+      margin: rem(70) 0;
+
+      grid-template-columns: repeat(1, 1fr);
+      gap: rem(40);
+    }
+
+    @include mediaMobile {
+      gap: rem(30);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: rem(40);
+
+    @include mediaBigDesktop {
+      gap: big(40);
+    }
+
+    @include mediaLaptop {
+      gap: rem(30);
+    }
+
+    @include mediaTablet {
+      gap: rem(20);
+    }
+
+    @include mediaMobile {
+      gap: rem(10);
+    }
+  }
+
+  &__title {
+    text-underline-offset: rem(6);
+
+    margin-bottom: rem(40);
+
+    font: var(--font-h2);
+    text-decoration: underline rem(2) var(--accent-primary-hover);
+    text-transform: uppercase;
+
+    @include mediaBigDesktop {
+      margin-bottom: big(40);
+      text-decoration: underline big(2) var(--accent-primary-hover);
+    }
+
+    @include mediaLaptop {
+      margin-bottom: rem(30);
+    }
+
+    @include mediaTablet {
+      margin-bottom: rem(20);
+    }
+
+    @include mediaMobile {
+      margin-bottom: rem(10);
+    }
+  }
+
+  &__description {
+    font: var(--font-body);
+    line-height: 1.5;
+  }
+
+  &__notable {
+    text-underline-offset: rem(3);
+
+    margin-top: rem(50);
+
+    font: var(--font-body);
+    line-height: 1.5;
+    text-decoration: underline rem(2) var(--accent-primary-hover);
+    text-transform: uppercase;
+
+    @include mediaBigDesktop {
+      margin-top: big(50);
+    }
+
+    @include mediaLaptop {
+      margin-top: rem(30);
+    }
+
+    @include mediaTablet {
+      margin-top: rem(20);
+    }
+
+    &-list {
+      font: var(--font-body);
+      line-height: 1.5;
+    }
+  }
+
+  &__date {
+    width: rem(60);
+    height: rem(60);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font: var(--font-date);
+    text-align: center;
+
+    background-color: var(--bg-accent);
+    border-radius: var(--radius-infinity);
+
+    @include mediaBigDesktop {
+      width: big(60);
+      height: big(60);
+    }
+
+    @include mediaLaptop {
+      width: rem(60);
+      height: rem(60);
+    }
+
+    @include mediaTablet {
+      width: rem(60);
+      height: rem(60);
+    }
+
+    @include mediaMobile {
+      width: rem(60);
+      height: rem(60);
+    }
+  }
+
+  &__block {
+    margin-bottom: rem(40);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: rem(30);
+
+    @include mediaBigDesktop {
+      margin-bottom: big(40);
+
+      gap: big(30);
+    }
+
+    @include mediaLaptop {
+      margin-bottom: rem(30);
+
+      gap: rem(30);
+    }
+
+    @include mediaTablet {
+      margin-bottom: rem(20);
+
+      gap: rem(20);
+    }
+
+    @include mediaMobile {
+      margin-top: rem(20);
+      margin-bottom: rem(10);
+
+      gap: rem(10);
+    }
+  }
+
+  &__work {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+
+    @include mediaBigDesktop {
+      gap: big(10);
+    }
+
+    @include mediaLaptop {
+      gap: rem(10);
+    }
+
+    @include mediaTablet {
+      gap: rem(10);
+    }
+
+    @include mediaMobile {
+      gap: rem(10);
+    }
+  }
+
+  &__company {
+    font: var(--font-h4);
+    text-transform: uppercase;
+  }
+
+  &__position {
+    font: var(--font-body);
+  }
+
+  &__hobbies {
+    margin-left: 7%;
+
+    max-width: rem(240);
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(30);
+
+    @include mediaBigDesktop {
+      max-width: big(240);
+      gap: big(30);
+    }
+
+    @include mediaLaptop {
+      max-width: rem(240);
+      gap: rem(30);
+    }
+
+    @include mediaTablet {
+      max-width: rem(240);
+      gap: rem(20);
+    }
+
+    @include mediaMobile {
+      margin: rem(20) auto 0;
+
+      max-width: rem(240);
+      gap: rem(10);
+    }
+  }
+
+  &__hobby-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(10);
+
+    @include mediaBigDesktop {
+      gap: big(10);
+    }
+
+    @include mediaLaptop {
+      gap: rem(10);
+    }
+
+    @include mediaTablet {
+      gap: rem(10);
+    }
+
+    @include mediaMobile {
+      gap: rem(10);
+    }
+  }
+
+  &__icon-wrapper {
+    width: rem(60);
+    height: rem(60);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    @include mediaBigDesktop {
+      width: big(60);
+      height: big(60);
+    }
+
+    @include mediaLaptop {
+      width: rem(50);
+      height: rem(50);
+    }
+
+    @include mediaMobile {
+      width: rem(44);
+      height: rem(44);
+    }
+  }
+
+  &__icon {
+    width: rem(35);
+    height: rem(35);
+
+    filter: brightness(0) invert(1);
+
+    @include mediaBigDesktop {
+      width: big(35);
+      height: big(35);
+    }
+
+    @include mediaLaptop {
+      width: rem(30);
+      height: rem(30);
+    }
+
+    @include mediaMobile {
+      width: rem(25);
+      height: rem(25);
+    }
+  }
+
+  &__stacks-block {
+    margin-top: rem(20);
+
+    display: flex;
+    flex-direction: column;
+
+    @include mediaBigDesktop {
+      margin-top: big(20);
+    }
+
+    @include mediaLaptop {
+      margin-top: rem(10);
+    }
+
+    @include mediaTablet {
+      margin-top: rem(10);
+    }
+
+    @include mediaMobile {
+      margin-top: rem(10);
+    }
+  }
+
+  &__stacks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(10);
+
+    @include mediaBigDesktop {
+      gap: big(10);
+    }
+
+    @include mediaLaptop {
+      gap: rem(10);
+    }
+
+    @include mediaTablet {
+      gap: rem(10);
+    }
+
+    @include mediaMobile {
+      gap: rem(10);
+    }
+  }
+
+  &__stack {
+    padding: rem(7) rem(15);
+
+    font: var(--font-body);
+
+    border: 1px solid var(--border-color-hover);
+    border-radius: var(--radius-card);
+
+    @include mediaBigDesktop {
+      padding: big(7) big(15);
+    }
+
+    @include mediaLaptop {
+      padding: rem(7) rem(15);
+    }
+
+    @include mediaTablet {
+      padding: rem(7) rem(15);
+    }
+
+    @include mediaMobile {
+      padding: rem(7) rem(15);
+    }
+  }
+}

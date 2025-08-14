@@ -1,0 +1,215 @@
+.section {
+  --section-background-color: transparent;
+  --section-border-radius: 0;
+  --section-dots-height: #{rem(488)};
+  --section-dots-width: #{rem(646)};
+
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  &:not(.section_grid) {
+    & .container {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      gap: var(--section-gap);
+    }
+  }
+
+  &_padding {
+    &_top {
+      padding-top: var(--section-padding);
+    }
+
+    &_bottom {
+      padding-bottom: var(--section-padding);
+    }
+  }
+
+  &__head {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: rem(40);
+
+    @include mediaTablet {
+      gap: rem(35);
+    }
+
+    @include mediaMobile {
+      gap: rem(20);
+    }
+  }
+
+  &__title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: rem(25);
+
+    @include mediaTablet {
+      gap: rem(20);
+    }
+
+    @include mediaMobile {
+      gap: rem(15);
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__name {
+    color: var(--accent-primary-default);
+    font: 400 rem(12) / 1 var(--font-primary);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__description {
+    color: var(--text-dark-secondary);
+    font: 400 rem(17) / 1.3 var(--font-primary);
+
+    &:empty {
+      display: none;
+    }
+
+    & b,
+    & strong {
+      color: var(--accent-primary-default);
+      font: inherit;
+    }
+  }
+
+  &_dots {
+    & .container {
+
+      &::before,
+      &::after {
+        content: "";
+
+        position: absolute;
+        z-index: -1;
+
+        width: var(--section-dots-width);
+        height: var(--section-dots-height);
+
+        background-image: url("/images/background_dots.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        pointer-events: none;
+        user-select: none;
+      }
+
+      &::before {
+        top: calc(0px - var(--section-padding));
+        right: 0;
+        left: 0;
+        margin: auto;
+
+        transform: rotate(17deg);
+      }
+
+      &::after {
+        --section-dots-height: #{rem(286)};
+        --section-dots-width: #{rem(298)};
+
+        top: calc(0px - var(--section-padding));
+        left: 0;
+
+        transform: rotate(-37deg);
+      }
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    right: var(--container-offset);
+    left: var(--container-offset);
+
+    width: auto;
+    height: 100%;
+
+    background-color: var(--bg-light);
+    border-radius: 0 var(--radius-big-elements) 0 var(--radius-big-elements);
+    overflow: hidden;
+
+    pointer-events: none;
+    user-select: none;
+
+    &::before,
+    &::after {
+      content: "";
+
+      position: absolute;
+      z-index: 1;
+
+      width: var(--section-dots-width);
+      height: var(--section-dots-height);
+
+      background-image: url("/images/background_dots.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      pointer-events: none;
+      user-select: none;
+    }
+
+    &::before {
+      top: rem(-39);
+      right: rem(-140);
+
+      @include mediaTablet {
+        right: rem(-268);
+      }
+
+      @include mediaMobile {
+        right: rem(-368);
+      }
+    }
+
+    &::after {
+      bottom: rem(-35);
+      left: rem(-193);
+
+      @include mediaTablet {
+        left: rem(-238);
+      }
+
+      @include mediaMobile {
+        left: rem(-273);
+      }
+    }
+  }
+
+  &:has(.section__background) {
+    position: relative;
+
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+
+    & .container {
+      --container-width: calc(var(--content-width) + (var(--container-offset) * 4));
+
+      padding: 0 calc(var(--container-offset) * 2);
+    }
+  }
+}

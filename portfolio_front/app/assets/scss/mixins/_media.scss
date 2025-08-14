@@ -1,0 +1,35 @@
+@mixin mediaBigDesktop {
+  @media screen and (min-width: 1921px) {
+    @content;
+  }
+}
+
+// @mixin mediaDesktop {
+//   @media screen and (min-width: #{rem(2201)}) {
+//     @content;
+//   }
+// }
+
+@mixin mediaLaptop {
+  @media screen and (max-width: 1700px) {
+    @content;
+  }
+}
+
+@mixin mediaTablet {
+  @media screen and (max-width: 1240px) {
+    @content;
+  }
+}
+
+@mixin mediaMobile {
+  @media screen and (max-width: 750px) {
+    @content;
+  }
+}
+
+@mixin media($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}

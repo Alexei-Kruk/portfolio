@@ -1,0 +1,17 @@
+@import "@/assets/scss/_mixins.scss";
+
+.footer {
+  position: fixed;
+  bottom: rem(6);
+  z-index: 2;
+
+  width: 100%;
+
+  text-align: center;
+  opacity: 0.4;
+
+  &__text {
+    color: var(--text-gray);
+    font: var(--font-footer);
+  }
+}

@@ -1,0 +1,114 @@
+@import "@/assets/scss/_mixins.scss";
+
+.hero {
+  margin: 0;
+
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0,0,0,0.3)), url("/images/main-banner.jpg") center center/cover no-repeat;
+
+  &__content {
+    margin-bottom: rem(100);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(70);
+
+    @include mediaBigDesktop {
+      gap: big(70);
+    }
+
+    @include mediaLaptop {
+      gap: rem(50);
+    }
+
+    @include mediaMobile {
+      margin-bottom: rem(30);
+
+      padding: rem(30) rem(20);
+      gap: rem(36);
+    }
+  }
+
+  &__title {
+    margin: 0;
+
+    padding: 0;
+
+    color: var(--text-light-primary);
+    font: var(--font-hero-title);
+
+    user-select: none;
+
+    & span {
+      margin-left: -10px;
+
+      padding: 0;
+
+      font: var(--font-hero-title-bold);
+      text-transform: uppercase;
+
+      @include mediaMobile {
+        margin-left: -5px;
+      }
+    }
+  }
+
+  &__subtitle {
+    color: var(--text-light-primary);
+    font: var(--font-hero-subtitle);
+    letter-spacing: 0.2em;
+
+    user-select: none;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: rem(25);
+
+    @include mediaBigDesktop {
+      gap: big(25);
+    }
+
+    @include mediaLaptop {
+      gap: rem(20);
+    }
+
+    @include mediaMobile {
+      gap: rem(16);
+    }
+  }
+
+  &__button {
+    padding: rem(10) rem(50);
+
+    color: var(--text-light-primary);
+    font: var(--font-btn);
+    text-decoration: none;
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-big-elements);
+
+    transition: all var(--animation-default);
+
+    @include mediaBigDesktop {
+      padding: big(10) big(50);
+    }
+
+    @include mediaTablet {
+      padding: rem(10) rem(40);
+    }
+
+    &:hover {
+      color: var(--text-light-secondary);
+
+      border-color: var(--border-color-hover);
+    }
+  }
+}

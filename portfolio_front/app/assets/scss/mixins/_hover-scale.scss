@@ -1,0 +1,7 @@
+@mixin hover-scale($selector) {
+  @include hover {
+    #{$selector} {
+      transform: scale(1.1);
+    }
+  }
+}

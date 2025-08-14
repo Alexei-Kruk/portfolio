@@ -1,0 +1,74 @@
+@import "@/assets/scss/_mixins.scss";
+
+.nav {
+  width: 100%;
+
+  transition: transform var(--animation-default);
+
+  @include mediaMobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    padding: rem(60) rem(20);
+    height: 100%;
+    flex-direction: column;
+
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+
+    transform: translateX(-100%);
+
+    &--open {
+      transform: translateX(0);
+    }
+  }
+
+  &__list {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: rem(60);
+
+    list-style: none;
+
+    @include mediaBigDesktop {
+      gap: big(60);
+    }
+
+    @include mediaTablet {
+      gap: rem(40);
+    }
+
+    @include mediaMobile {
+      flex-direction: column;
+      gap: rem(36);
+      align-items: flex-start;
+      padding: rem(30) rem(20); 
+    }
+  }
+
+  &__item {
+    color: var(--text-light-primary);
+    font: var(--font-nav);
+    text-decoration: none;
+
+    transition: color var(--animation-default);
+
+    @include mediaMobile {
+      font: var(--font-nav-mobile);
+    }
+
+    &:hover,
+    &.router-link-active,
+    &.nuxt-link-exact-active {
+      color: var(--text-light-secondary);
+    }
+  }
+}
