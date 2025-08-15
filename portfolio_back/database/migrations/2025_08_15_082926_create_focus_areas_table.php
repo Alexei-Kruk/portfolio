@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('experiences', function (Blueprint $table) {
+        Schema::create('focus_areas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('resume_id')->constrained()->onDelete('cascade');
-            $table->string('company_name');
-            $table->string('position');
-            $table->date('date_from');
-            $table->date('date_to');
-            $table->longText('short_description');
+            $table->string('focus_areas');
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('experiences');
+        Schema::dropIfExists('focus_areas');
     }
 };

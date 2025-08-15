@@ -4,10 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Hobby extends Model
+class Result extends Model
 {
     protected $fillable = [
-        'name',
-        'icon'
+        'result'
     ];
 }

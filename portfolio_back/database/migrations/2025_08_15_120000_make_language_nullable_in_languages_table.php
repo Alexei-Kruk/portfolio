@@ -6,22 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('resumes', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('languages', function (Blueprint $table) {
+            $table->string('language')->nullable()->change();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('resumes');
+        Schema::table('languages', function (Blueprint $table) {
+            $table->string('language')->nullable(false)->change();
+        });
     }
 };

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('hobbies', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('resume_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->text('icon');
             $table->timestamps();
