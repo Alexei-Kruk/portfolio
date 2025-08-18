@@ -20,7 +20,7 @@ class FocusAreasRelationManager extends RelationManager
             ->schema([
                 Forms\Components\TextArea::make('focus_areas')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(1000),
             ]);
     }
 
