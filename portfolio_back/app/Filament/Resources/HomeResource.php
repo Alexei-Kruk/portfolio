@@ -22,6 +22,8 @@ class HomeResource extends Resource
     protected static ?string $navigationGroup = 'Content';
     protected static ?string $pluralModelLabel = 'Home';
     protected static ?string $modelLabel = 'Home';
+    protected static ?string $slug = 'home';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {

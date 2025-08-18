@@ -22,6 +22,8 @@ class AboutResource extends Resource
     protected static ?string $navigationGroup = 'Content';
     protected static ?string $pluralModelLabel = 'About';
     protected static ?string $modelLabel = 'About';
+    protected static ?string $slug = 'about';
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {

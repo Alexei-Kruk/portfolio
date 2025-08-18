@@ -22,6 +22,8 @@ class ExperienceResource extends Resource
     protected static ?string $navigationLabel = 'Experience';
     protected static ?string $pluralModelLabel = 'Experience';
     protected static ?string $modelLabel = 'Experience';
+    protected static ?string $slug = 'experience';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {

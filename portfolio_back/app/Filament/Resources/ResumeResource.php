@@ -22,6 +22,8 @@ class ResumeResource extends Resource
     protected static ?string $navigationGroup = 'Content';
     protected static ?string $pluralModelLabel = 'Resume';
     protected static ?string $modelLabel = 'Resume';
+    protected static ?string $slug = 'resume';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
