@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Experience extends Model
 {
     protected $fillable = [
-        'resume_id',
         'company_name',
         'position',
         'short_description',
@@ -17,7 +16,7 @@ class Experience extends Model
 
     public function stacks()
     {
-        return $this->belongsToMany(Stack::class, 'experience_stacks');
+        return $this->hasMany(Stack::class);
     }
 
     public function results()

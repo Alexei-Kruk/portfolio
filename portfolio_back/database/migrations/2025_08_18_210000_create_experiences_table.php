@@ -6,26 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('resume_id')->constrained()->onDelete('cascade');
-            $table->string('company_name');
-            $table->string('position');
-            $table->date('date_from');
-            $table->date('date_to');
-            $table->longText('short_description');
+            $table->string('company_name')->nullable();
+            $table->string('position')->nullable();
+            $table->longText('short_description')->nullable();
+            $table->date('date_from')->nullable();
+            $table->date('date_to')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('experiences');

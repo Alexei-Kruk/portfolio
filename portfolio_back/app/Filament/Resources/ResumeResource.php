@@ -17,8 +17,9 @@ class ResumeResource extends Resource
 {
     protected static ?string $model = Resume::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-document-text';
     protected static ?string $navigationLabel = 'Resume';
+    protected static ?string $navigationGroup = 'Content';
     protected static ?string $pluralModelLabel = 'Resume';
     protected static ?string $modelLabel = 'Resume';
 

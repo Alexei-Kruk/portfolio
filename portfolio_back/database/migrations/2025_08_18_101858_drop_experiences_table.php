@@ -6,19 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::table('experiences', function (Blueprint $table) {
-            $table->string('date_from')->change();
-            $table->string('date_to')->change();
-        });
+        Schema::dropIfExists('experience_stacks');
+        Schema::dropIfExists('results');
+        Schema::dropIfExists('experiences');
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::table('experiences', function (Blueprint $table) {
-            $table->date('date_from')->change();
-            $table->date('date_to')->change();
+            //
         });
     }
 };

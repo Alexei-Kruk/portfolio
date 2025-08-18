@@ -23,8 +23,12 @@ class HobbiesRelationManager extends RelationManager
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('icon')
                     ->required()
+                    ->directory('hobbies')
                     ->maxSize(1024)
-                    ->acceptedFileTypes(['image/*']),
+                    ->acceptedFileTypes(['image/*'])
+                    ->disk('public')
+                    ->image()
+                    ->visibility('public'),
             ]);
     }
 

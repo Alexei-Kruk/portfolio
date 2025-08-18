@@ -17,8 +17,9 @@ class AboutResource extends Resource
 {
     protected static ?string $model = About::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-oval-left-ellipsis';
     protected static ?string $navigationLabel = 'About';
+    protected static ?string $navigationGroup = 'Content';
     protected static ?string $pluralModelLabel = 'About';
     protected static ?string $modelLabel = 'About';
 
@@ -38,7 +39,10 @@ class AboutResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->required()
                     ->maxSize(5120)
-                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif']),
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif'])
+                    ->disk('public')
+                    ->image()
+                    ->visibility('public'),
             ]);
     }
 
@@ -46,11 +50,15 @@ class AboutResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('description')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('location')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('email')->searchable()->sortable(),
-                Tables\Columns\ImageColumn::make('image')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('created_at')->dateTime('d.m.Y H:i')->sortable(),
+                Tables\Columns\TextColumn::make('location')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\ImageColumn::make('image')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //

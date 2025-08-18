@@ -17,8 +17,9 @@ class HomeResource extends Resource
 {
     protected static ?string $model = Home::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-home';
     protected static ?string $navigationLabel = 'Home';
+    protected static ?string $navigationGroup = 'Content';
     protected static ?string $pluralModelLabel = 'Home';
     protected static ?string $modelLabel = 'Home';
 
@@ -28,15 +29,19 @@ class HomeResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('first_name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('First Name'),
                 Forms\Components\TextInput::make('last_name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('Last Name'),
                 Forms\Components\TextInput::make('position')
                     ->required()
+                    ->label('Position')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('phone')
                     ->required()
+                    ->label('Phone')
                     ->maxLength(255),
             ]);
     }
@@ -45,11 +50,18 @@ class HomeResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('first_name')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('last_name')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('position')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('phone')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('created_at')->dateTime('d.m.Y H:i')->sortable(),
+                Tables\Columns\TextColumn::make('first_name')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('last_name')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('position')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('phone')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //

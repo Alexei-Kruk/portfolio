@@ -12,4 +12,8 @@ class About extends Model
         'email',
         'image',
     ];
+
+    protected $casts = [
+        'image' => 'array',
+    ];
 }

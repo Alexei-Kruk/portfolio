@@ -19,11 +19,19 @@ class SocialRelationManager extends RelationManager
     {
         return $form->schema([
             Forms\Components\TextInput::make('platform')
-                ->required()->maxLength(255),
+                ->required()
+                ->maxLength(255),
             Forms\Components\TextInput::make('url')
-                ->required()->maxLength(255),
+                ->required()
+                ->maxLength(255),
             Forms\Components\FileUpload::make('icon')
-                ->required()->maxSize(1024)->acceptedFileTypes(['image/*']),
+                ->required()
+                ->directory('socials')
+                ->maxSize(1024)
+                ->acceptedFileTypes(['image/*'])
+                ->disk('public')
+                ->image()
+                ->visibility('public'),
         ]);
     }
 
@@ -31,11 +39,14 @@ class SocialRelationManager extends RelationManager
     {
         return $table->columns([
             Tables\Columns\TextColumn::make('platform')
-                ->searchable()->sortable(),
+                ->searchable()
+                ->sortable(),
             Tables\Columns\TextColumn::make('url')
-                ->searchable()->sortable(),
-            Tables\Columns\TextColumn::make('icon')
-                ->searchable()->sortable(),
+                ->searchable()
+                ->sortable(),
+            Tables\Columns\ImageColumn::make('icon')
+                ->searchable()
+                ->sortable(),
         ])
             ->filters([
                 //
