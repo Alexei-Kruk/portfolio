@@ -1,0 +1,458 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Portfolio API",
+        "description": "Portfolio API documentation for personal site",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/about": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Get about page",
+                "operationId": "246ced98173c994c6ec8ed96170a84e4",
+                "responses": {
+                    "200": {
+                        "description": "About page data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/About"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/experience": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Get experience page",
+                "operationId": "bb2b808eef7770a44427eac9c28253ff",
+                "responses": {
+                    "200": {
+                        "description": "Experience page data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Experience"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/experience/{experience}": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Get experience by ID",
+                "operationId": "699a51656bb9b8f21ec4ee30b00aa843",
+                "parameters": [
+                    {
+                        "name": "experience",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Experience details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Experience"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Experience not found"
+                    }
+                }
+            }
+        },
+        "/api/home": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Get home page",
+                "description": "API endpoints for site pages",
+                "operationId": "d65ef76cbb32ae304c5a24c525b95adb",
+                "responses": {
+                    "200": {
+                        "description": "Home page data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Home"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/projects": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Get projects",
+                "operationId": "fbc21feeb3df8a2cb519efb6480ae7d9",
+                "responses": {
+                    "200": {
+                        "description": "Projects data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Project"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/projects/{project}": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Get project by ID",
+                "operationId": "5dffe8ed14d1a7d4bb6a0296b271e96d",
+                "parameters": [
+                    {
+                        "name": "project",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Project details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Project"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Project not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "About": {
+                "title": "About",
+                "description": "A brief description about the individual.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "description": {
+                        "description": "Description",
+                        "type": "string"
+                    },
+                    "location": {
+                        "description": "Location",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "Email",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "Image",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Experience": {
+                "title": "Experience",
+                "description": "A brief description about the experience.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "company_name": {
+                        "description": "Company Name",
+                        "type": "string"
+                    },
+                    "position": {
+                        "description": "Position",
+                        "type": "string"
+                    },
+                    "short_description": {
+                        "description": "Short Description",
+                        "type": "string"
+                    },
+                    "date_from": {
+                        "description": "Date From",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "date_to": {
+                        "description": "Date To",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "stacks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Stack"
+                        }
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Result"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "FocusArea": {
+                "title": "Focus Area",
+                "description": "A brief description about the focus area.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "focus_areas": {
+                        "description": "Focus areas",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Hobby": {
+                "title": "Hobby",
+                "description": "A brief description about the hobby.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Name",
+                        "type": "string"
+                    },
+                    "icon": {
+                        "description": "Icon",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Home": {
+                "title": "Home",
+                "description": "A brief description about the home.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "first_name": {
+                        "description": "First Name",
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "description": "Last Name",
+                        "type": "string"
+                    },
+                    "position": {
+                        "description": "Position",
+                        "type": "string"
+                    },
+                    "phone": {
+                        "description": "Phone",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Language": {
+                "title": "Language",
+                "description": "A brief description about the language.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "language": {
+                        "description": "Language",
+                        "type": "string"
+                    },
+                    "proficiency": {
+                        "description": "Proficiency",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Project": {
+                "title": "Project",
+                "description": "A brief description about the project.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "Title",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description",
+                        "type": "string"
+                    },
+                    "stack": {
+                        "description": "Stack",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "link": {
+                        "description": "Link",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "Image",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Result": {
+                "title": "Result",
+                "description": "A brief description about the result.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "result": {
+                        "description": "Result",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Social": {
+                "title": "Social",
+                "description": "A brief description about the social media.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "platform": {
+                        "description": "Platform",
+                        "type": "string"
+                    },
+                    "url": {
+                        "description": "URL",
+                        "type": "string"
+                    },
+                    "icon": {
+                        "description": "Icon",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "SoftSkill": {
+                "title": "Soft Skill",
+                "description": "A brief description about the soft skill.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Name",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "SoftwareSkill": {
+                "title": "Software Skill",
+                "description": "A brief description about the software skill.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "category": {
+                        "description": "Category",
+                        "type": "string"
+                    },
+                    "skills": {
+                        "description": "Skills",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Stack": {
+                "title": "Stack",
+                "description": "A brief description about the stack.",
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Name",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Pages",
+            "description": "Pages"
+        }
+    ]
+}
