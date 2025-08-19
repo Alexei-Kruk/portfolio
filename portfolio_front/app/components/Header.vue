@@ -43,7 +43,8 @@
 </template>
 
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { formatPhone } from '@/utils/formatPhone'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const isMenuOpen = ref(false)
 const isMobile = ref(false)
@@ -75,8 +76,8 @@ const phoneIcon = [
   { name: 'Phone', icon: '/images/icons/phone.svg' }
 ]
 
-const phone = '+375295744458'
-const formattedPhone = '375-29-57-444-58'
+const phone = useState('phone')
+const formattedPhone = computed(() => formatPhone(phone.value))
 </script>
 
 <style lang="scss">

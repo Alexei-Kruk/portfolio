@@ -2,51 +2,43 @@
   <div class="socials">
     <a
       v-for="social in socials"
-      :key="social.name"
+      :key="social.id"
       :href="social.url"
       class="socials__link"
       target="_blank"
       rel="noopener noreferrer"
-      :aria-label="social.name"
+      :aria-label="social.platform"
     >
-      <img :src="social.icon" :alt="social.name" class="socials__icon" />
+      <img :src="`http://localhost:92/storage/${social.icon}`" :alt="social.name" class="socials__icon" />
     </a>
   </div>
 </template>
 
-<script setup>
-const socials = [
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/alexei-kruk/',
-    icon: '/images/icons/linkedin.svg',
-  },
-  {
-    name: 'Facebook',
-    url: 'https://www.facebook.com/alexeikruk28',
-    icon: '/images/icons/facebook.svg',
-  },
-  {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/alexei_kruk/',
-    icon: '/images/icons/instagram.svg',
-  },
-  {
-    name: 'Telegram',
-    url: 'https://t.me/AlexeiKruk',
-    icon: '/images/icons/telegram.svg',
-  },
-  {
-    name: 'WhatsApp',
-    url: 'https://wa.me/375295744458',
-    icon: '/images/icons/whatsapp.svg',
-  },
-  {
-    name: 'Mail',
-    url: 'mailto:alexei.kruk.dev@gmail.com',
-    icon: '/images/icons/mail.svg',
-  },
-];
+<script setup lang="ts">
+import axios from 'axios'
+import { onMounted, ref, Ref } from 'vue'
+
+interface SocialItem {
+  id: number;
+  name: string;
+  platform: string;
+  url: string;
+  icon: string;
+}
+
+const socials: Ref<SocialItem[]> = ref([])
+
+onMounted(async () => {
+  const { data } = await axios.get('/api/socials')
+  const arr = Array.isArray(data.data) ? data.data : [data.data]
+  socials.value = arr.map((social: any) => ({
+    id: social.id,
+    name: social.name,
+    platform: social.platform,
+    url: social.url,
+    icon: social.icon
+  }))
+})
 </script>
 
 <style lang="scss">

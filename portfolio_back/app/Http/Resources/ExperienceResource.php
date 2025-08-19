@@ -71,8 +71,8 @@ class ExperienceResource extends JsonResource
             'company_name' => $this->company_name,
             'position' => $this->position,
             'short_description' => $this->short_description,
-            'date_from' => Carbon::parse($this->date_from)->translatedFormat('Y'),
-            'date_to' => Carbon::parse($this->date_to)->translatedFormat('Y'),
+            'date_from' => $this->date_from,
+            'date_to' => $this->date_to,
             'stacks' => StackResource::collection($this->stacks)->toArray($request),
             'results' => ResultResource::collection($this->results)->toArray($request),
         ];

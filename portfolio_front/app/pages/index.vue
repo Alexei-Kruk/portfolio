@@ -27,17 +27,38 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import HeroSocials from '@/components/HeroSocials.vue'
+import axios from 'axios'
+import { onMounted, ref, Ref } from 'vue'
 
-const firstName = 'Alexei'
-const lastName = 'Kruk'
-const jobTitle = 'Backend Developer'
+interface HomeData {
+  first_name: string;
+  last_name: string;
+  position: string;
+}
 
-const buttons = [
+const firstName: Ref<string> = ref('')
+const lastName: Ref<string> = ref('')
+const jobTitle: Ref<string> = ref('')
+
+onMounted(async () => {
+  const { data } = await axios.get('/api/home')
+  const home: HomeData = Array.isArray(data.data) ? data.data[0] : data.data
+  firstName.value = home.first_name
+  lastName.value = home.last_name
+  jobTitle.value = home.position
+})
+
+interface Button {
+  label: string;
+  link: string;
+}
+
+const buttons: Button[] = [
   { label: 'Resume', link: '/resume' },
   { label: 'Portfolio', link: '/portfolio' }
-]
+];
 </script>
 
 <style lang="scss">

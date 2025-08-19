@@ -13,11 +13,11 @@ use App\Http\Controllers\Api\ExperienceController;
 use App\Http\Controllers\Api\SocialController;
 
 Route::apiResource('/home', HomeController::class)
-    ->only(['index', 'show'])
+    ->only(['index'])
     ->parameter('home', 'home');
 
 Route::apiResource('/about', AboutController::class)
-    ->only(['index', 'show'])
+    ->only(['index'])
     ->parameter('about', 'about');
 
 Route::apiResource('/projects', ProjectController::class)

@@ -32,4 +32,15 @@ export default defineNuxtConfig({
       mode: 'out-in',
     },
   },
+
+  vite: {
+    server: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:92',
+          changeOrigin: true,
+        }
+      }
+    }
+  },
 })
