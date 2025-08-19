@@ -1,36 +1,36 @@
 # Portfolio (Nuxt 3 + Laravel API)
 
-## О проекте
+## About the Project
 
-Многостраничное портфолио с современным стеком:
+Multi-page portfolio with a modern stack:
 - **Frontend:** Nuxt 3 (Vue 3, TypeScript, Composition API, SCSS, Axios, Pinia)
 - **Backend:** Laravel 12 (REST API, Filament Admin, PostgreSQL)
 - **DevOps:** Docker, CI/CD
 
-Проект демонстрирует:
-- Адаптивную верстку и современный UI
-- Динамическую загрузку данных с API (резюме, портфолио, контакты и др.)
-- Удобную админку для управления контентом
-- SSR/CSR, оптимизацию загрузки, лоадеры
-- Чистую архитектуру, строгую типизацию, best practices
+The project demonstrates:
+- Responsive layout and modern UI
+- Dynamic data loading from API (resume, portfolio, contacts, etc.)
+- Convenient admin panel for content management
+- SSR/CSR, loading optimization, loaders
+- Clean architecture, strict typing, best practices
 
 ---
 
-## Быстрый старт
+## Quick Start
 
-### 1. Клонирование и запуск
+### 1. Clone and Run
 ```bash
-# Клонируйте репозиторий
+# Clone the repository
 https://github.com/Alexei-Kruk/portfolio.git
 
-# Перейдите в папку фронта и установите зависимости
+# Go to the frontend folder and install dependencies
 cd client
 npm install
 
-# Запустите фронтенд
+# Start the frontend
 npm run dev
 
-# Для бэкенда (Laravel):
+# For backend (Laravel):
 cd ../server
 cp .env.example .env
 composer install
@@ -39,43 +39,43 @@ php artisan migrate --seed
 php artisan serve
 ```
 
-### 2. Настройка прокси (Vite)
-В `client/nuxt.config.ts` настроен proxy для API-запросов на Laravel backend.
+### 2. Proxy Setup (Vite)
+API proxy for Laravel backend is configured in `client/nuxt.config.ts`.
 
 ---
 
-## Структура
+## Structure
 - `client/` — Nuxt 3 frontend
-- `server/` — Laravel backend (API, админка)
+- `server/` — Laravel backend (API, admin panel)
 
 ---
 
-## Основные страницы
-- `/` — Главная (Hero, контакты, соцсети)
-- `/about` — Обо мне
-- `/resume` — Резюме (опыт, навыки, стек, хобби)
-- `/portfolio` — Проекты
+## Main Pages
+- `/` — Home (Hero, contacts, social links)
+- `/about` — About Me
+- `/resume` — Resume (experience, skills, stack, hobbies)
+- `/portfolio` — Projects
 
 ---
 
-## Тестирование
-- Юнит-тесты и интеграционные тесты можно писать на Vitest
-- E2E — Cypress/Playwright (по желанию)
+## Testing
+- Unit and integration tests can be written with Vitest
+- E2E — Cypress/Playwright (optional)
 
 ---
 
-## Разработка и поддержка
-- Все данные (опыт, проекты, соцсети и др.) редактируются через Filament Admin
-- Для SSR/CSR и быстрой загрузки используются useAsyncData, лоадеры
-- Код покрыт строгой типизацией (TypeScript)
+## Development & Support
+- All data (experience, projects, social links, etc.) is managed via Filament Admin
+- SSR/CSR and fast loading use useAsyncData, loaders
+- Code is strictly typed (TypeScript)
 
 ---
 
-## Контакты
-- [Telegram](https://t.me/yourusername)
-- [Email](mailto:your@email.com)
+## Contacts
+- [Telegram](https://t.me/AlexeiKruk)
+- [Email](mailto:alexei.kruk.dev@gmail.com)
 
 ---
 
-## Лицензия
+## License
 MIT
