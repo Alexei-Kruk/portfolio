@@ -25,29 +25,22 @@ Route::apiResource('/projects', ProjectController::class)
     ->parameter('projects', 'project');
 
 Route::apiResource('/software-skills', SoftwareSkillController::class)
-    ->only(['index', 'show'])
-    ->parameter('software-skills', 'software-skill');
+    ->only(['index']);
 
 Route::apiResource('/languages', LanguageController::class)
-    ->only(['index', 'show'])
-    ->parameter('languages', 'language');
+    ->only(['index']);
 
 Route::apiResource('/soft-skills', SoftSkillController::class)
-    ->only(['index', 'show'])
-    ->parameter('soft-skills', 'soft-skill');
+    ->only(['index']);
 
 Route::apiResource('/focus-areas', FocusAreaController::class)
-    ->only(['index', 'show'])
-    ->parameter('focus-areas', 'focus-area');
+    ->only(['index']);
 
 Route::apiResource('/hobbies', HobbyController::class)
-    ->only(['index', 'show'])
-    ->parameter('hobbies', 'hobby');
+    ->only(['index']);
 
 Route::apiResource('/experiences', ExperienceController::class)
-    ->only(['index', 'show'])
-    ->parameter('experiences', 'experience');
+    ->only(['index']);
 
 Route::apiResource('/socials', SocialController::class)
-    ->only(['index', 'show'])
-    ->parameter('socials', 'social');
+    ->only(['index']);

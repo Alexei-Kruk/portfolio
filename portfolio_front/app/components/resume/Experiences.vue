@@ -1,5 +1,6 @@
 <template>
-  <div class="resume__item">
+  <Loader v-if="isLoading" />
+  <div v-else class="resume__item">
     <h2 class="resume__title">Experience</h2>
     <div v-for="item in experience" :key="item.id">
       <div class="resume__block">
@@ -38,9 +39,9 @@
 </template>
 
 <script setup lang="ts">
+import Loader from '@/components/Loader.vue'
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
-import type { Ref } from 'vue'
 
 interface ExperienceItem {
   id: number;
@@ -54,11 +55,13 @@ interface ExperienceItem {
 }
 
 const experience = ref<ExperienceItem[]>([])
+const isLoading = ref(true)
 
 onMounted(async () => {
   const { data: expData } = await axios.get('/api/experiences')
   experience.value = (expData.data || []).map((experienceItem: any) => ({
     ...experienceItem
   }))
+  isLoading.value = false
 })
 </script>

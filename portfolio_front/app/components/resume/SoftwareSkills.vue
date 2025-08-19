@@ -1,5 +1,6 @@
 <template>
-  <div class="resume__item">
+  <Loader v-if="isLoading" />
+  <div v-else class="resume__item">
     <h2 class="resume__title">Software Skills</h2>
     <div v-for="item in skills" :key="item.id">
       <p class="resume__description">
@@ -11,6 +12,7 @@
 </template>
 
 <script setup lang="ts">
+import Loader from '@/components/Loader.vue'
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
 
@@ -21,6 +23,7 @@ interface SkillCategory {
 }
 
 const skills = ref<SkillCategory[]>([])
+const isLoading = ref(true)
 
 onMounted(async () => {
   const { data: skillsData } = await axios.get('/api/software-skills')
@@ -31,5 +34,6 @@ onMounted(async () => {
       ? softwareSkills.skills.split(',').map((s: string) => s.trim())
       : (softwareSkills.skills || [])
   }))
+  isLoading.value = false
 })
 </script>

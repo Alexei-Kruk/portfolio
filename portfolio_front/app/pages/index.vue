@@ -1,5 +1,6 @@
 <template>
-  <section class="hero">
+  <Loader v-if="isPageLoading" />
+  <section v-else class="hero">
     <div class="container">
       <div class="hero__content">
         <div class="hero__head">
@@ -29,6 +30,7 @@
 
 <script setup lang="ts">
 import HeroSocials from '@/components/HeroSocials.vue'
+import Loader from '@/components/Loader.vue'
 import axios from 'axios'
 import { onMounted, ref, Ref } from 'vue'
 
@@ -41,6 +43,7 @@ interface HomeData {
 const firstName: Ref<string> = ref('')
 const lastName: Ref<string> = ref('')
 const jobTitle: Ref<string> = ref('')
+const isPageLoading = ref(true)
 
 onMounted(async () => {
   const { data } = await axios.get('/api/home')
@@ -48,6 +51,7 @@ onMounted(async () => {
   firstName.value = home.first_name
   lastName.value = home.last_name
   jobTitle.value = home.position
+  isPageLoading.value = false
 })
 
 interface Button {

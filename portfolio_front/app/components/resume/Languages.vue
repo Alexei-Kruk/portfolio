@@ -1,5 +1,6 @@
 <template>
-  <div class="resume__item">
+  <Loader v-if="isLoading" />
+  <div v-else class="resume__item">
     <h2 class="resume__title">Languages</h2>
     <p
       v-for="item in languages"
@@ -12,6 +13,7 @@
 </template>
 
 <script setup lang="ts">
+import Loader from '@/components/Loader.vue'
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
 
@@ -22,6 +24,7 @@ interface LanguageItem {
 }
 
 const languages = ref<LanguageItem[]>([])
+const isLoading = ref(true)
 
 onMounted(async () => {
   const { data: langData } = await axios.get('/api/languages')
@@ -30,5 +33,6 @@ onMounted(async () => {
     language: languageItem.language,
     proficiency: languageItem.proficiency
   }))
+  isLoading.value = false
 })
 </script>

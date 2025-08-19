@@ -1,5 +1,6 @@
 <template>
-  <section class="about">
+  <Loader v-if="isPageLoading" />
+  <section v-else class="about">
     <div class="container about__container">
       <div class="about__content">
         <div class="about__head">
@@ -24,6 +25,7 @@
 </template>
 
 <script setup lang="ts">
+import Loader from '@/components/Loader.vue'
 import axios from 'axios'
 import { onMounted, ref, Ref } from 'vue'
 
@@ -38,6 +40,7 @@ const email: Ref<string> = ref('')
 const location: Ref<string> = ref('')
 const description: Ref<string> = ref('')
 const image: Ref<string> = ref('')
+const isPageLoading = ref(true)
 
 onMounted(async () => {
   const { data } = await axios.get('/api/about')
@@ -46,6 +49,7 @@ onMounted(async () => {
   location.value = about.location
   description.value = about.description
   image.value = about.image
+  isPageLoading.value = false
 })
 </script>
 

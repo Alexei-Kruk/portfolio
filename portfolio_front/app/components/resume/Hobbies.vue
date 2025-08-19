@@ -1,5 +1,6 @@
 <template>
-  <div class="resume__item">
+  <Loader v-if="isLoading" />
+  <div v-else class="resume__item">
     <h2 class="resume__title">Hobbies & Interests</h2>
     <div class="resume__hobbies">
       <div class="resume__hobby-wrapper" v-for="item in hobbies" :key="item.id">
@@ -13,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+import Loader from '@/components/Loader.vue'
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
 
@@ -23,13 +25,15 @@ export interface HobbyItem {
 }
 
 const hobbies = ref<HobbyItem[]>([])
+const isLoading = ref(true)
 
 onMounted(async () => {
   const { data: hobbyData } = await axios.get('/api/hobbies')
-    hobbies.value = (hobbyData.data || []).map((hobby: any) => ({
-      id: hobby.id,
-      name: hobby.name,
-      icon: `http://localhost:92/storage/${hobby.icon}`
-    }))
+  hobbies.value = (hobbyData.data || []).map((hobby: any) => ({
+    id: hobby.id,
+    name: hobby.name,
+    icon: `http://localhost:92/storage/${hobby.icon}`
+  }))
+  isLoading.value = false
 })
 </script>

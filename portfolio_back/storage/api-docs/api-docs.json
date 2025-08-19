@@ -88,13 +88,60 @@
                 }
             }
         },
+        "/api/focus-areas": {
+            "get": {
+                "tags": [
+                    "Components"
+                ],
+                "summary": "Get focus areas",
+                "operationId": "cdebdfbc249e0b2d26101fd942d570c2",
+                "responses": {
+                    "200": {
+                        "description": "Focus areas data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/FocusArea"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/hobbies": {
+            "get": {
+                "tags": [
+                    "Components"
+                ],
+                "summary": "Get hobbies",
+                "operationId": "a7a383c3cf95b303030c1f9a1592b1e8",
+                "responses": {
+                    "200": {
+                        "description": "Hobbies data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Hobby"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/home": {
             "get": {
                 "tags": [
                     "Pages"
                 ],
                 "summary": "Get home page",
-                "description": "API endpoints for site pages",
                 "operationId": "d65ef76cbb32ae304c5a24c525b95adb",
                 "responses": {
                     "200": {
@@ -105,6 +152,30 @@
                                     "type": "array",
                                     "items": {
                                         "$ref": "#/components/schemas/Home"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/languages": {
+            "get": {
+                "tags": [
+                    "Components"
+                ],
+                "summary": "Get all languages",
+                "operationId": "1cb1ddff581b67412e8c4d53e8a5286d",
+                "responses": {
+                    "200": {
+                        "description": "List of languages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Language"
                                     }
                                 }
                             }
@@ -167,6 +238,126 @@
                     },
                     "404": {
                         "description": "Project not found"
+                    }
+                }
+            }
+        },
+        "/api/results": {
+            "get": {
+                "tags": [
+                    "Components"
+                ],
+                "summary": "Get all results",
+                "operationId": "a025a5d051517bf790b4dcef055e89fd",
+                "responses": {
+                    "200": {
+                        "description": "List of results",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Result"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/socials": {
+            "get": {
+                "tags": [
+                    "Components"
+                ],
+                "summary": "Get all socials",
+                "operationId": "cbf72570170b5744e2c401991d2c3b5c",
+                "responses": {
+                    "200": {
+                        "description": "List of socials",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Social"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/soft-skills": {
+            "get": {
+                "tags": [
+                    "Components"
+                ],
+                "summary": "Get all soft skills",
+                "operationId": "d067d287dbe42eb9f1a35d7fddcfc74e",
+                "responses": {
+                    "200": {
+                        "description": "List of soft skills",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SoftSkill"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/software-skills": {
+            "get": {
+                "tags": [
+                    "Components"
+                ],
+                "summary": "Get all software skills",
+                "operationId": "8edc0d66cb74c56fcf6281deb343794e",
+                "responses": {
+                    "200": {
+                        "description": "List of software skills",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SoftwareSkill"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/stack": {
+            "get": {
+                "tags": [
+                    "Components"
+                ],
+                "summary": "Get all stack",
+                "operationId": "e092548d3811a21b51fb8b9ee157beb6",
+                "responses": {
+                    "200": {
+                        "description": "List of stack",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Stack"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -453,6 +644,10 @@
         {
             "name": "Pages",
             "description": "Pages"
+        },
+        {
+            "name": "Components",
+            "description": "Components"
         }
     ]
 }
