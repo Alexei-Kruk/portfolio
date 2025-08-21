@@ -12,7 +12,6 @@ class ResumeFactory extends Factory
     public function definition(): array
     {
         return [
-            'summary' => $this->faker->paragraph(),
             'created_at' => now(),
             'updated_at' => now(),
         ];

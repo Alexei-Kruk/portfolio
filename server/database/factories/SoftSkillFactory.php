@@ -13,6 +13,7 @@ class SoftSkillFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
+            'resume_id' => \App\Models\Resume::inRandomOrder()->first()?->id ?? \App\Models\Resume::factory(),
             'created_at' => now(),
             'updated_at' => now(),
         ];

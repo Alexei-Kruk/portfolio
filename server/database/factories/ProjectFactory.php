@@ -14,7 +14,9 @@ class ProjectFactory extends Factory
         return [
             'title' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),
-            'url' => $this->faker->url(),
+            'stack' => $this->faker->word(),
+            'link' => $this->faker->url(),
+            'image' => $this->faker->imageUrl(),
             'created_at' => now(),
             'updated_at' => now(),
         ];

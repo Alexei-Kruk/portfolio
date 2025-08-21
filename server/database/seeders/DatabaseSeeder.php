@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
 
         // Create demo data for all main entities
         $this->call([
+            HomeSeeder::class, // HomeSeeder должен идти раньше SocialSeeder
             ProjectSeeder::class,
             ExperienceSeeder::class,
             ResumeSeeder::class,

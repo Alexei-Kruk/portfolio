@@ -13,7 +13,7 @@ class StackFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'level' => $this->faker->randomElement(['junior', 'middle', 'senior']),
+            'experience_id' => \App\Models\Experience::inRandomOrder()->first()?->id ?? \App\Models\Experience::factory(),
             'created_at' => now(),
             'updated_at' => now(),
         ];

@@ -12,8 +12,9 @@ class SoftwareSkillFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->word(),
-            'level' => $this->faker->randomElement(['basic', 'intermediate', 'advanced']),
+            'resume_id' => \App\Models\Resume::inRandomOrder()->first()?->id ?? \App\Models\Resume::factory(),
+            'category' => $this->faker->word(),
+            'skills' => $this->faker->word(),
             'created_at' => now(),
             'updated_at' => now(),
         ];
