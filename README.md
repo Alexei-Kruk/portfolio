@@ -72,8 +72,8 @@ API proxy for Laravel backend is configured in `client/nuxt.config.ts`.
 ---
 
 ## Contacts
-- [Telegram](https://t.me/AlexeiKruk)
-- [Email](mailto:alexei.kruk.dev@gmail.com)
+- [Telegram: @AlexeiKruk](https://t.me/AlexeiKruk)
+- [Email: alexei.kruk.dev@gmail.com](mailto:alexei.kruk.dev@gmail.com)
 
 ---
 

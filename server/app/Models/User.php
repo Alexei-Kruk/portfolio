@@ -41,4 +41,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Filament: доступ в админку
+     * Только для владельца сайта (email), но в dev-режиме — для всех
+     */
+    public function canAccessPanel(\Filament\Panel $panel): bool
+    {
+        if (app()->environment('production')) {
+            return $this->email === 'alexei.kruk.dev@gmail.com';
+        }
+
+        return true;
+    }
 }
