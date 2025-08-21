@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class About extends Model
 {
-    use Model;
+    use HasFactory;
 
     protected $fillable = [
         'description',
