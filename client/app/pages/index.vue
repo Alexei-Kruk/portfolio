@@ -46,7 +46,7 @@ const jobTitle: Ref<string> = ref('')
 const isPageLoading = ref(true)
 
 onMounted(async () => {
-  const { data } = await axios.get('/api/home')
+  const { data } = await axios.get('https://api.alexei-kruk.com/api/home')
   const home: HomeData = Array.isArray(data.data) ? data.data[0] : data.data
   firstName.value = home.first_name
   lastName.value = home.last_name

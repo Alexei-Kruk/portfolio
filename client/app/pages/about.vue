@@ -43,7 +43,7 @@ const image: Ref<string> = ref('')
 const isPageLoading = ref(true)
 
 onMounted(async () => {
-  const { data } = await axios.get('/api/about')
+  const { data } = await axios.get('https://api.alexei-kruk.com/api/about')
   const about: AboutData = Array.isArray(data.data) ? data.data[0] : data.data
   email.value = about.email
   location.value = about.location

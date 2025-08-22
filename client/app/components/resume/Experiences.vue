@@ -58,7 +58,7 @@ const experience = ref<ExperienceItem[]>([])
 const isLoading = ref(true)
 
 onMounted(async () => {
-  const { data: expData } = await axios.get('/api/experiences')
+  const { data: expData } = await axios.get('https://api.alexei-kruk.com/api/experiences')
   experience.value = (expData.data || []).map((experienceItem: any) => ({
     ...experienceItem
   }))

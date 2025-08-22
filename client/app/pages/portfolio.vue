@@ -42,7 +42,7 @@ interface ProjectItem {
 const projects = ref<ProjectItem[]>([])
 
 onMounted(async () => {
-  const { data } = await axios.get('/api/projects')
+  const { data } = await axios.get('https://api.alexei-kruk.com/api/projects')
   projects.value = Array.isArray(data.data) ? data.data : [data.data]
   projects.value = projects.value.map((project: any) => ({
     id: project.id,

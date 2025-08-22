@@ -23,7 +23,7 @@ interface HomeData {
 const phone = useState<string>('phone', () => '')
 onMounted(async () => {
   try {
-    const { data } = await axios.get('/api/home')
+    const { data } = await axios.get('https://api.alexei-kruk.com/api/home')
     const home: HomeData = Array.isArray(data.data) ? data.data[0] : data.data
     phone.value = home.phone
   } catch (e) {

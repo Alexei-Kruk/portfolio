@@ -26,12 +26,10 @@ import Hobbies from '@/components/resume/Hobbies.vue'
 import Languages from '@/components/resume/Languages.vue'
 import SoftSkills from '@/components/resume/SoftSkills.vue'
 import SoftwareSkills from '@/components/resume/SoftwareSkills.vue'
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const isPageLoading = ref(true)
 onMounted(() => {
-  // Можно добавить ожидание загрузки данных из дочерних компонентов через эмиты или глобальный стейт
-  // Пока просто скрываем Loader после mount (минимальный UX)
   setTimeout(() => { isPageLoading.value = false }, 400)
 })
 </script>

@@ -29,7 +29,7 @@ interface SocialItem {
 const socials: Ref<SocialItem[]> = ref([])
 
 onMounted(async () => {
-  const { data } = await axios.get('/api/socials')
+  const { data } = await axios.get('https://api.alexei-kruk.com/api/socials')
   const arr = Array.isArray(data.data) ? data.data : [data.data]
   socials.value = arr.map((social: any) => ({
     id: social.id,

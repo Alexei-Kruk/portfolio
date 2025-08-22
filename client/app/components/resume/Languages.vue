@@ -27,7 +27,7 @@ const languages = ref<LanguageItem[]>([])
 const isLoading = ref(true)
 
 onMounted(async () => {
-  const { data: langData } = await axios.get('/api/languages')
+  const { data: langData } = await axios.get('https://api.alexei-kruk.com/api/languages')
   languages.value = (langData.data || []).map((languageItem: any) => ({
     id: languageItem.id,
     language: languageItem.language,

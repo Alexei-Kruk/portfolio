@@ -28,7 +28,7 @@ const hobbies = ref<HobbyItem[]>([])
 const isLoading = ref(true)
 
 onMounted(async () => {
-  const { data: hobbyData } = await axios.get('/api/hobbies')
+  const { data: hobbyData } = await axios.get('https://api.alexei-kruk.com/api/hobbies')
   hobbies.value = (hobbyData.data || []).map((hobby: any) => ({
     id: hobby.id,
     name: hobby.name,

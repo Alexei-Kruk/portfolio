@@ -15,7 +15,7 @@ const focus = ref('')
 const isLoading = ref(true)
 
 onMounted(async () => {
-  const { data: focusData } = await axios.get('/api/focus-areas')
+  const { data: focusData } = await axios.get('https://api.alexei-kruk.com/api/focus-areas')
   focus.value = (focusData.data && focusData.data[0]) ? focusData.data[0].focus_areas : ''
   isLoading.value = false
 })

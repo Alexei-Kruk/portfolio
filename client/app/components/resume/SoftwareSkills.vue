@@ -26,7 +26,7 @@ const skills = ref<SkillCategory[]>([])
 const isLoading = ref(true)
 
 onMounted(async () => {
-  const { data: skillsData } = await axios.get('/api/software-skills')
+  const { data: skillsData } = await axios.get('https://api.alexei-kruk.com/api/software-skills')
   skills.value = (skillsData.data || []).map((softwareSkills: any) => ({
     id: softwareSkills.id,
     category: softwareSkills.category,

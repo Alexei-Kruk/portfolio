@@ -28,7 +28,7 @@ const softSkills = ref<SoftSkill[]>([])
 const isLoading = ref(true)
 
 onMounted(async () => {
-  const { data: softData } = await axios.get('/api/soft-skills')
+  const { data: softData } = await axios.get('https://api.alexei-kruk.com/api/soft-skills')
   softSkills.value = (softData.data || []).map((softSkill: any) => ({
     id: softSkill.id,
     name: softSkill.name
