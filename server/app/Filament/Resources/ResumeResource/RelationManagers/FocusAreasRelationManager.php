@@ -7,6 +7,7 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Components\Textarea;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -18,7 +19,7 @@ class FocusAreasRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextArea::make('focus_areas')
+                Forms\Components\Textarea::make('focus_areas')
                     ->required()
                     ->maxLength(1000),
             ]);

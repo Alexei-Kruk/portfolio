@@ -7,6 +7,7 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Components\Textarea;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -24,7 +25,7 @@ class SoftwareSkillsRelationManager extends RelationManager
                 Forms\Components\TextInput::make('category')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextArea::make('skills')
+                Forms\Components\Textarea::make('skills')
                     ->required()
                     ->maxLength(2000),
             ]);
